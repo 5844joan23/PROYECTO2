@@ -31,7 +31,7 @@ require_once '../services/conexion.php';
                                     <span class="icon-bar"></span>
                                 </button>
                                 <div class="session">
-                                <?php echo "Welcome: ".$_SESSION['camarero']?>
+                                <?php echo "Welcome: ".$_SESSION['user']?>
                                 </div>
                                 <div class="logo">
                                     <a class="navbar-brand js-scroll-trigger logo-header" href="#">
