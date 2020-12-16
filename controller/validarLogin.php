@@ -12,15 +12,20 @@ require_once "../services/conexion.php";
     $sentencia = $pdo->prepare($result);
     $sentencia->execute();
     if($sentencia->rowCount()!=0){ //Se ejecuta el if si existe el usuario
-        $query= "SELECT status_user from tbl_user where email_user='$email' and passwd_user='$password'";
+        $query= "SELECT * from tbl_user where email_user='$email' and passwd_user='$password'";
         $sentencia= $pdo->prepare($query);
         $sentencia->execute();
 
-            $status= $sentencia->fetch();
+            $user= $sentencia->fetch();
+            $id=$user['Id_user'];
+            $status=$user['status_user'];
+            $email=$user['email_user'];
             session_start();
-            $_SESSION["user"] = $email;
 
-            switch ($status[0]) {
+            $_SESSION["email_user"] = $email;
+            $_SESSION["userid"] = $id;
+
+            switch ($status) {
                 case '1':
                     header("Location: ../view/homeAdmin.php");
                     break;

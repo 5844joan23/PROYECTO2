@@ -1,5 +1,9 @@
 <?php
 require_once '../services/conexion.php';
+require_once '../controller/validarConexion.php';
+$user=$_SESSION['user'];
+$userid=$_SESSION['userid'];
+
 
 $id2=$_GET['id'];
 $query="SELECT tbl_mesas.* FROM tbl_mesas INNER JOIN tbl_salas ON tbl_mesas.id_sala=tbl_salas.id_sala WHERE tbl_mesas.id_sala=?";
@@ -34,7 +38,7 @@ foreach($mesas as $mesa){
     if(empty($array[$i-1])){
         echo "<h4>{$mesa['disponibilidad_mesa']} </h4>";
         if ($mesa['disponibilidad_mesa']=="disponible"){
-            echo "<a href='../controller/validarReservar.php?id_mesa=$id&id_sala=$id2'><button type='submit'>RESERVAR</button></a>";
+            echo "<a href='../controller/validarReservar.php?id_mesa=$id&id_sala=$id2&email_user=$user'><button type='submit'>RESERVAR</button></a>";
         } else {
             echo "<a href='../controller/validarAliberar.php?id_mesa=$id&id_sala=$id2'><button type='submit'>ALIBERAR</button></a>";
         }

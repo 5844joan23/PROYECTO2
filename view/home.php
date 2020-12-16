@@ -41,10 +41,14 @@ require_once '../services/conexion.php';
                             </div>
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="#banner">Inicio</a></li>
-                                    <li><a href="filterBookings.php">Filtrar Mesa</a></li>
-                                    <li><a href="incidencias.php">Incidencias</a></li>
-                                    <li><a href="../services/logOut.php">Cerrar Sesion</a></li>
+                                    <?php
+                                    $user=$_SESSION['user'];
+                                    echo '<li><a href="#banner">Inicio</a></li>';
+                                    echo '<li><a href="filterBookings.php">Filtrar Mesa</a></li>';
+                                    echo '<li><a href="incidencias.php">Incidencias</a></li>';
+                                    echo "<li><a href='formReserva.php?email_user=$user'>Hacer Reserva</a></li>";
+                                    echo '<li><a href="../services/logOut.php">Cerrar Sesion</a></li>';
+                                    ?>
                                 </ul> 
                             </div>
                         </nav>
@@ -93,9 +97,11 @@ require_once '../services/conexion.php';
                         $mesa = $mesa1 - $mesa2;
                         echo "<h3> MESAS DISPONIBLES: $mesa </h3><br><br>";
                         ?>
-						<div class="book-btn">
-                            <a href="mostrarMesas.php?id=1" class="table-btn hvr-underline-from-center">Reservar mi mesa</a>
-                        </div>
+                        <?php
+						echo '<div class="book-btn">';
+                            echo "<a href='mostrarMesas.php?id=1&?email_user=$user' class='table-btn hvr-underline-from-center'>Reservar mi mesa</a>";
+                        echo '</div>';
+                        ?>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">

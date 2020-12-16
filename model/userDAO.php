@@ -28,6 +28,7 @@ class UserDao{
             //$user->setId_user($result['Id_user']);
             session_start();
             $_SESSION['user']= $user->getEmail_user();
+            $_SESSION['userid']= $user->getId_user();
             return true;
         }else {
             return false;
