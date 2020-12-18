@@ -3,6 +3,7 @@ class IncidenciasDao{
     private $pdo;
 
     public function __construct(){ 
+        include '../services/config.php';
         include '../services/conexion.php';
         $this->pdo=$pdo;
     } 
