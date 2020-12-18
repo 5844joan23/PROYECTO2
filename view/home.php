@@ -31,7 +31,7 @@ require_once '../services/conexion.php';
                                     <span class="icon-bar"></span>
                                 </button>
                                 <div class="session">
-                                <?php echo "Welcome: ".$_SESSION['user']?>
+                                <?php echo "Welcome: ".$_SESSION['email_user']?>
                                 </div>
                                 <div class="logo">
                                     <a class="navbar-brand js-scroll-trigger logo-header" href="#">
@@ -42,11 +42,11 @@ require_once '../services/conexion.php';
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right">
                                     <?php
-                                    $user=$_SESSION['user'];
+                                    $user=$_SESSION['email_user'];
                                     echo '<li><a href="#banner">Inicio</a></li>';
                                     echo '<li><a href="filterBookings.php">Filtrar Mesa</a></li>';
                                     echo '<li><a href="incidencias.php">Incidencias</a></li>';
-                                    echo "<li><a href='formReserva.php?email_user=$user'>Hacer Reserva</a></li>";
+                                    echo '<li><a href="showBookings.php">Tabla de reservas</a></li>';
                                     echo '<li><a href="../services/logOut.php">Cerrar Sesion</a></li>';
                                     ?>
                                 </ul> 

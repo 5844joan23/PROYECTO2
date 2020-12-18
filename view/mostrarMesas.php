@@ -1,6 +1,6 @@
 <?php
 require_once '../controller/validarConexion.php';
-$user=$_REQUEST['email_user'];
+$user=$_REQUEST['id'];
 ?>
 <!DOCTYPE html>
 <html>

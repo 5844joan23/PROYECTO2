@@ -26,10 +26,10 @@ $sentencia=$pdo->prepare($query);
 $sentencia->execute();
 
 if($sentencia->rowCount()!=0){
-    header("Location: ../view/mostrarReserva.php");
+    header("Location: ../view/showBookings.php");
 } else {
     $query="INSERT INTO tbl_reservas (dia_reserva, id_mesa, franja_horaria, nombre_reserva, comensales, telefono, id_user) VALUES ('$dia', '$mesa', '$hora', '$nombre', '$comensales', '$telefono', '$id_user')";
-    /* $sentencia=$pdo->prepare($query);
+    $sentencia=$pdo->prepare($query);
     $sentencia->bindParam(1,$dia);
     $sentencia->bindParam(2,$mesa);
     $sentencia->bindParam(3,$hora);
@@ -37,7 +37,7 @@ if($sentencia->rowCount()!=0){
     $sentencia->bindParam(5,$comensales);
     $sentencia->bindParam(6,$telefono);
     $sentencia->bindParam(7,$id_user);
-    $sentencia->execute(); */
+    $sentencia->execute();
 
     header("Location: ../view/home.php");
 }

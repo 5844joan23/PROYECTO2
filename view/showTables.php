@@ -1,7 +1,7 @@
 <?php
 require_once '../services/conexion.php';
 require_once '../controller/validarConexion.php';
-$user=$_SESSION['user'];
+$user=$_SESSION['email_user'];
 $userid=$_SESSION['userid'];
 
 

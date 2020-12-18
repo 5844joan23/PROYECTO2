@@ -1,14 +1,14 @@
-<?php
-require_once '../model/userDAO.php';
-?>
+<!-- <?php
+/* require_once '../model/userDAO.php';
+ */?>
 <html>
   <head>
     <meta charset="UTF-8">
   </head>
 <body>
 <?php
-$user=$_REQUEST['email_user'];
-echo "<form action='../controller/formReservaController.php?email_user=$user' method='POST'>";
+/* $user=$_REQUEST['email_user'];
+echo "<form action='../controller/formReservaController.php?email_user=$user' method='POST'>"; */
 ?>
   <label for="comensales">Número de comensales</label><br>
   <select name="comensales" id="comensales" name="comensales">
@@ -41,4 +41,4 @@ echo "<form action='../controller/formReservaController.php?email_user=$user' me
 </form> 
 
 </body>
-</html>
+</html> -->

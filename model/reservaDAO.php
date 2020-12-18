@@ -9,10 +9,48 @@ class ReservaDao{
     }
 
     public function newReservar($id_mesa,$email_user){
+      echo "<script src='../js/validarReserva.js'></script>";
+      echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>";
 
-        echo "<form action='../controller/formReservaController.php?email_user=$email_user&id_mesa=$id_mesa' method='POST'>";
+        echo "<form action='../controller/formReservaController.php?email_user=$email_user&id_mesa=$id_mesa' method='POST' onsubmit='return validarReserva()'>";
 ?>
+  <style>
+  * {
+    padding-top: 1%;
+    text-align: center;
+  }
+input[type=text], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 
+input[type=submit] {
+  width: 5%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<script src="../js/validarReserva.js"></script>
   <label for="comensales">Número de comensales</label><br>
   <select name="comensales" id="comensales" name="comensales">
     <option value="1">1</option>
@@ -23,7 +61,7 @@ class ReservaDao{
     <option value="6">6</option>
   </select><br><br>
   <label for="dia">Día de la reserva</label><br>
-  <input type="date" id="dia" name="dia"><br><br>
+  <input type="date" id="dia" name="dia" onclick='return fecha()'><br><br>
   <label for="lname">Hora de la reserva</label><br>
   <select name="hora" id="hora">
     <option value="13-14">13:00-14:00</option>
@@ -42,6 +80,7 @@ class ReservaDao{
   <input type="submit" value="Submit">
 
 </form>
+<div id="msg"></div>
 <?php
         /* $query="INSERT INTO tbl_reservas (id_mesa,dia_reserva,hora_entrada_reserva) VALUES (?,?,?)";
         $sentencia=$this->pdo->prepare($query);
